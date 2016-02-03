@@ -16,7 +16,7 @@ module.exports = {
         filename: 'bundle.js'
     },
     //enable dev source map
-    devtool: 'eval-source-map',
+    devtool: 'cheap-module-eval-source-map',
     //enable dev server
     devServer: {
         historyApiFallback: true,
@@ -36,6 +36,8 @@ module.exports = {
         }]
     },
     plugins: [
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.NoErrorsPlugin(),
         new HtmlwebpackPlugin({
             title: 'My first react app'
         })
